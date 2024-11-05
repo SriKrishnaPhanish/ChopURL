@@ -1,8 +1,10 @@
 const express = require("express");
 const { URLs } = require("./db/index");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
+app.use(cors());
 app.use(express.json());
 
 async function RandomString() {
@@ -21,6 +23,25 @@ async function RandomString() {
     return result;
   }
 }
+
+app.get("/:shortUrl", async (req, res) => {
+  const shortUrl = req.params.shortUrl;
+  const urlDb = await URLs.findOne({
+    shortURL: shortUrl,
+  });
+  if (urlDb) {
+    const url = urlDb.url;
+    if (url.startsWith("https://")) {
+      res.redirect(url);
+    } else {
+      res.redirect("https://" + url);
+    }
+  } else {
+    res.status(404).json({
+      message: "No such URL exists",
+    });
+  }
+});
 
 app.post("/v1/api/generate", async (req, res) => {
   const body = req.body;
