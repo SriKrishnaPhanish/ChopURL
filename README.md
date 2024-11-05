@@ -22,14 +22,14 @@ A simple URL shortener application with separate frontend and backend components
 
 1. **Clone the Repository**
 2. Navigate to Backend directory and install dependencies
-  ```bash
-  cd backend
-  npm install
+   ```bash
+    cd backend
+    npm install
 3. Add MongoDB connection string in db/index.js
 4. Navigate to the frontend directory and install dependencies
-  ```bash
-  cd frontend
-  npm install
+   ```bash
+    cd frontend
+    npm install
 5. Run the application
   ```bash
   node backend/src/index.js
