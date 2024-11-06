@@ -4,8 +4,14 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://chopurl.onrender.com",
+  })
+);
+
 app.use(express.json());
+app.options("/v1/api/generate", cors());
 
 async function RandomString() {
   const CHARACTERS =
