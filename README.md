@@ -1,4 +1,4 @@
-# ChopURL
+# ChopURL - https://chopurl.onrender.com/
 
 A simple URL shortener application with separate frontend and backend components. This project allows users to shorten long URLs for easier sharing.
 
