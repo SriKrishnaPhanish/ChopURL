@@ -1,3 +1,5 @@
+import copyImg from "../src/images/copy.png";
+
 export const defaultCopy_DOM = () => {
   const inputBox = document.getElementById("inputBox");
   inputBox.classList.remove("bg-green-100");
@@ -16,7 +18,7 @@ export const successResponse_DOM = () => {
   errorMessage.setAttribute("hidden", "");
   document.getElementById("urlEntered").value = "";
   document.getElementById("copyBoxId").removeAttribute("hidden");
-  document.getElementById("copyImg").src = "../src/images/copy.png";
+  document.getElementById("copyImg").src = copyImg;
 };
 
 export const errorMessage_DOM = () => {
