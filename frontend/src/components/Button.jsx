@@ -11,6 +11,7 @@ function isValidURL(urlEntered) {
 }
 
 async function postURLtoDB() {
+  console.log(import.meta.env.VITE_BACKEND_API);
   const urlEntered = document.getElementById("urlEntered").value;
   if (urlEntered === "" || urlEntered === null) {
     errorMessage_DOM();
@@ -22,7 +23,7 @@ async function postURLtoDB() {
   };
 
   const response = await axios.post(
-    "http://localhost:3000/v1/api/generate",
+    import.meta.env.VITE_BACKEND_API + "v1/api/generate",
     urlData
   );
 
@@ -30,7 +31,7 @@ async function postURLtoDB() {
     if (response.data.type === "Success") {
       successResponse_DOM();
       document.getElementById("inputBox").value =
-        "http://localhost:3000/" + response.data.shortUrl;
+        import.meta.env.VITE_BACKEND_API + response.data.shortUrl;
     }
   }
 }
